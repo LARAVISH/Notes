@@ -20,7 +20,9 @@
         <entry key="..\:/Android_21/Android_Studio/Notes/app/src/main/res/layout/fragment_note_details.xml" value="0.1" />
         <entry key="..\:/Android_21/Android_Studio/Notes/app/src/main/res/layout/fragment_notes_details.xml" value="0.1" />
         <entry key="..\:/Android_21/Android_Studio/Notes/app/src/main/res/layout/fragment_notes_list.xml" value="0.1" />
+        <entry key="..\:/Android_21/Android_Studio/Notes/app/src/main/res/layout/item_nav_header.xml" value="0.1" />
         <entry key="..\:/Android_21/Android_Studio/Notes/app/src/main/res/layout/item_note.xml" value="0.1" />
+        <entry key="..\:/Android_21/Android_Studio/Notes/app/src/main/res/menu/menu_nav_drawer.xml" value="0.1" />
       </map>
     </option>
   </component>

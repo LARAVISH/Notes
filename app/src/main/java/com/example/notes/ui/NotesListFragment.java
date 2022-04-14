@@ -1,6 +1,5 @@
 package com.example.notes.ui;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,19 +43,11 @@ public class NotesListFragment extends Fragment {
             View itemView = getLayoutInflater().inflate(R.layout.item_note, container, false);
 
             itemView.findViewById(R.id.root).setOnClickListener
-                    (view1 -> {
-                        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                            Bundle bundle = new Bundle();
-                            bundle.putParcelable(SELECT_NOTE, note);
-                            getParentFragmentManager()
-                                    .setFragmentResult(NOTE_KEY, bundle);
-
-
-                        } else {
-                            NoteDetailsActivity.show(requireContext(), note);
-                        }
-
-                    });
+                    (view1 -> getParentFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment_container, NotesDetailsFragment.newInstance(note))
+                            .addToBackStack("details")
+                            .commit());
 
             ImageView icon = itemView.findViewById(R.id.icon_1);
             icon.setImageResource(note.getIcon());
