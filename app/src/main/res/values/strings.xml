@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Notes</string>
+    <string name="app_name">Заметки</string>
+    <string name="at_home">Дела Домашние</string>
+    <string name="on_work">На Работе</string>
+    <string name="call">Позвонить</string>
+    <string name="shopping">Купить</string>
+    <string name="major_event">Важное</string>
+    <string name="todo">TODO</string>
+    <string name="note">Заметка</string>
+    <string name="details_edit_text">Заметка</string>
+
 </resources>
