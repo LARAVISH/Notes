@@ -10,27 +10,18 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/tool_bar_list"
+            android:id="@+id/tool_bar_setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:menu="@menu/menu_app_bar_list"
-            app:title="@string/app_name" />
+            app:title="@string/title_app_bar_any_app" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
-            android:id="@+id/container_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </androidx.core.widget.NestedScrollView>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
-
-

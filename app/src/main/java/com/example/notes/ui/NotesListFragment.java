@@ -7,9 +7,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.example.notes.R;
@@ -37,6 +39,25 @@ public class NotesListFragment extends Fragment {
 
         List<Notes> notes = InMemoryNotesRepository.getInstance(requireContext()).getAll();
         LinearLayout container = view.findViewById(R.id.container_1);
+
+        Toolbar toolbar = view.findViewById(R.id.tool_bar_list);
+
+        toolbar.setOnMenuItemClickListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.action_search:
+                    Toast.makeText(requireContext(), getString(R.string.search), Toast.LENGTH_SHORT).show();
+                    return true;
+                case R.id.action_notify:
+                    Toast.makeText(requireContext(), getString(R.string.notify), Toast.LENGTH_SHORT).show();
+                    return true;
+            }
+
+            return false;
+        });
+
+        if (requireContext() instanceof ToolBarHolder) {
+            ((ToolBarHolder) requireActivity()).setToolBar(toolbar);
+        }
 
         for (Notes note : notes) {
 
