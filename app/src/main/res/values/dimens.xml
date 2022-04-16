@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="layout_elevation">0dp</dimen>
+    <dimen name="padding_horizontal">10dp</dimen>
+    <dimen name="padding_vertical">5dp</dimen>
+    <dimen name="margin_start">20dp</dimen>
+    <dimen name="margin_Top">20dp</dimen>
+    <dimen name="margin_Bottom">20dp</dimen>
+
+</resources>
