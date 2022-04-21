@@ -23,6 +23,14 @@
     <string name="notify">NOTIFY</string>
     <string name="title_app_bar_any_app">ПРОФИЛЬ</string>
     <string name="send">SEND</string>
+    <string name="delete_note">Желаете удалить заметку</string>
+    <string name="yes">Да</string>
+    <string name="note_delete">Заметка удалена</string>
+    <string name="exit">Выйти из приложения</string>
+    <string name="exit_app">Покинуть приложение</string>
+    <string name="no">Нет</string>
+    <string name="continie">Туточки</string>
+    <string name="to_leave_app">Желаете выйти из приложения</string>
 
 
 </resources>
