@@ -40,6 +40,14 @@ public class MainActivity extends AppCompatActivity implements ToolBarHolder {
                             .commit();
                     drawerLayout.close();
                     return true;
+                case R.id.action_exit:
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment_container, new ExitAppFragment())
+                            .commit();
+                    drawerLayout.close();
+                    return true;
+
             }
 
             return false;

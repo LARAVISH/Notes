@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.notes.R;
 import com.example.notes.domain.Notes;
+import com.google.android.material.snackbar.Snackbar;
 
 public class NotesDetailsFragment extends Fragment {
 
@@ -43,8 +44,9 @@ public class NotesDetailsFragment extends Fragment {
 
             switch (item.getItemId()) {
                 case R.id.action_delete:
-                    Toast.makeText(requireContext(), getString(R.string.delete), Toast.LENGTH_SHORT).show();
+                    showSnackBar(view);
                     return true;
+
                 case R.id.action_send:
                     Toast.makeText(requireContext(), getString(R.string.send), Toast.LENGTH_SHORT).show();
                     return true;
@@ -88,6 +90,12 @@ public class NotesDetailsFragment extends Fragment {
             popupMenu.show();
         });
 
+    }
+
+    private void showSnackBar(View view) {
+        Snackbar.make(view, getString(R.string.delete_note), Snackbar.LENGTH_INDEFINITE)
+                .setAction(getString(R.string.yes), view1 -> Toast.makeText(requireContext(),
+                        getString(R.string.note_delete), Toast.LENGTH_SHORT).show()).show();
     }
 
     private void showNote(Notes note) {
