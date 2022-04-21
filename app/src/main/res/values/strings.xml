@@ -1,3 +1,36 @@
 <resources>
-    <string name="app_name">Notes</string>
+    <string name="app_name">Заметки</string>
+    <string name="at_home">Дела Домашние</string>
+    <string name="on_work">На Работе</string>
+    <string name="call">Позвонить</string>
+    <string name="shopping">Купить</string>
+    <string name="major_event">Важное</string>
+    <string name="todo">TODO</string>
+    <string name="note">Заметка</string>
+    <string name="details_edit_text">Заметка</string>
+    <string name="notify_action">Уведомления</string>
+    <string name="action_send">send</string>
+    <string name="action_save">save</string>
+    <string name="delete">Удалили</string>
+    <string name="profile">ПРОФИЛЬ</string>
+    <string name="setting">НАСТРОЙКИ</string>
+    <string name="drawer_open">drawer open</string>
+    <string name="drawer_close" />
+    <string name="ПОИСК">search</string>
+    <string name="copy">ПОИСК</string>
+    <string name="title">НАСТРОЙКИ</string>
+    <string name="search">Search</string>
+    <string name="notify">NOTIFY</string>
+    <string name="title_app_bar_any_app">ПРОФИЛЬ</string>
+    <string name="send">SEND</string>
+    <string name="delete_note">Желаете удалить заметку</string>
+    <string name="yes">Да</string>
+    <string name="note_delete">Заметка удалена</string>
+    <string name="exit">Выйти из приложения</string>
+    <string name="exit_app">Покинуть приложение</string>
+    <string name="no">Нет</string>
+    <string name="continie">Туточки</string>
+    <string name="to_leave_app">Желаете выйти из приложения</string>
+
+
 </resources>
