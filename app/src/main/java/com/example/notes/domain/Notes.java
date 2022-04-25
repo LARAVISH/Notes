@@ -1,53 +1,34 @@
 package com.example.notes.domain;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import java.util.Date;
 
-import androidx.annotation.DrawableRes;
+public class Notes {
 
-public class Notes implements Parcelable {
-
-    public static final Creator<Notes> CREATOR = new Creator<Notes>() {
-        @Override
-        public Notes createFromParcel(Parcel in) {
-            return new Notes(in);
-        }
-
-        @Override
-        public Notes[] newArray(int size) {
-            return new Notes[size];
-        }
-    };
+    private final String id;
     private final String name;
-    private @DrawableRes
-    final int icon;
+    private final String message;
+    private final Date currentDate;
 
-    public Notes(String name, int icon) {
+    public Notes(String id, String name, String message, Date currentDate) {
+        this.id = id;
         this.name = name;
-        this.icon = icon;
+        this.message = message;
+        this.currentDate = currentDate;
     }
 
-    protected Notes(Parcel in) {
-        name = in.readString();
-        icon = in.readInt();
+    public String getId() {
+        return id;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getIcon() {
-        return icon;
+    public String getMessage() {
+        return message;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(name);
-        parcel.writeInt(icon);
+    public Date getCurrentDate() {
+        return currentDate;
     }
 }

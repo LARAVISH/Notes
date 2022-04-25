@@ -12,7 +12,7 @@
     <string name="action_send">send</string>
     <string name="action_save">save</string>
     <string name="delete">Удалили</string>
-    <string name="profile">ПРОФИЛЬ</string>
+    <string name="profile">Профиль</string>
     <string name="setting">НАСТРОЙКИ</string>
     <string name="drawer_open">drawer open</string>
     <string name="drawer_close" />
@@ -31,6 +31,12 @@
     <string name="no">Нет</string>
     <string name="continie">Туточки</string>
     <string name="to_leave_app">Желаете выйти из приложения</string>
+    <string name="notes">Notes</string>
+    <string name="details">Details</string>
+    <string name="title1">Title!</string>
+    <string name="message1">Message!</string>
+    <string name="message">Message</string>
+    <string name="info">Info</string>
 
 
 </resources>

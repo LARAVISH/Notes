@@ -4,27 +4,21 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.notes.R;
-import com.example.notes.domain.InMemoryNotesRepository;
+import com.example.notes.di.Dependencies;
 import com.example.notes.domain.Notes;
 
 import java.util.List;
 
 public class NotesListFragment extends Fragment {
-
-
-    public static final String NOTE_KEY = "NOTE_KEY";
-    public static final String SELECT_NOTE = "SELECT_NOTE";
 
 
     @Nullable
@@ -37,45 +31,25 @@ public class NotesListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        List<Notes> notes = InMemoryNotesRepository.getInstance(requireContext()).getAll();
-        LinearLayout container = view.findViewById(R.id.container_1);
+        List<Notes> notes = Dependencies.NOTES_REPOSITORY.getAll();
+        RecyclerView recyclerView = view.findViewById(R.id.notes_list);
 
-        Toolbar toolbar = view.findViewById(R.id.tool_bar_list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()
+                , LinearLayoutManager.VERTICAL, false));
 
-        toolbar.setOnMenuItemClickListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.action_search:
-                    Toast.makeText(requireContext(), getString(R.string.search), Toast.LENGTH_SHORT).show();
-                    return true;
-                case R.id.action_notify:
-                    Toast.makeText(requireContext(), getString(R.string.notify), Toast.LENGTH_SHORT).show();
-                    return true;
+        NotesAdapter adapter = new NotesAdapter();
+
+        adapter.setOnNoteClicked(new NotesAdapter.OnNoteClicked() {
+            @Override
+            public void onNoteClicked(Notes note) {
+                Toast.makeText(requireContext(), note.getName(), Toast.LENGTH_SHORT).show();
             }
-
-            return false;
         });
 
-        if (requireContext() instanceof ToolBarHolder) {
-            ((ToolBarHolder) requireActivity()).setToolBar(toolbar);
-        }
+        recyclerView.setAdapter(adapter);
+        adapter.setDate(notes);
+        adapter.notifyDataSetChanged();
 
-        for (Notes note : notes) {
 
-            View itemView = getLayoutInflater().inflate(R.layout.item_note, container, false);
-
-            itemView.findViewById(R.id.root).setOnClickListener
-                    (view1 -> getParentFragmentManager()
-                            .beginTransaction()
-                            .replace(R.id.fragment_container, NotesDetailsFragment.newInstance(note))
-                            .addToBackStack("details")
-                            .commit());
-
-            ImageView icon = itemView.findViewById(R.id.icon_1);
-            icon.setImageResource(note.getIcon());
-            TextView title = itemView.findViewById(R.id.title_1);
-            title.setText(note.getName());
-            container.addView(itemView);
-
-        }
     }
 }

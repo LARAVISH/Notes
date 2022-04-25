@@ -1,40 +1,25 @@
 package com.example.notes.domain;
 
-import android.content.Context;
-
-import com.example.notes.R;
-
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 public class InMemoryNotesRepository implements NotesRepository {
 
-    private static NotesRepository INSTANCE;
-    private final Context context;
-    private final List<Notes> notes;
 
-    private InMemoryNotesRepository(Context context) {
-        this.context = context;
-        notes = new ArrayList<>();
-    }
+    private final List<Notes> date = new ArrayList<>();
 
-    public static NotesRepository getInstance(Context context) {
-        if (INSTANCE == null) {
-            INSTANCE = new InMemoryNotesRepository(context);
+    public InMemoryNotesRepository() {
+
+        for (int i = 0; i < 20; i++) {
+            date.add(new Notes(UUID.randomUUID().toString(), "заметка " + i, "Сообщение " + i, new Date()));
         }
-        return INSTANCE;
     }
 
     @Override
     public List<Notes> getAll() {
-
-        notes.add(new Notes(context.getString(R.string.at_home), R.drawable.ic_baseline_home));
-        notes.add(new Notes(context.getString(R.string.on_work), R.drawable.ic_baseline_work));
-        notes.add(new Notes(context.getString(R.string.shopping), R.drawable.ic_baseline_shopping));
-        notes.add(new Notes(context.getString(R.string.call), R.drawable.ic_baseline_phone));
-        notes.add(new Notes(context.getString(R.string.major_event), R.drawable.ic_baseline_event));
-
-        return notes;
+        return date;
     }
 
     @Override
