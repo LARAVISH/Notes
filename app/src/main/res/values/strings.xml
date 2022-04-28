@@ -37,6 +37,9 @@
     <string name="message1">Message!</string>
     <string name="message">Message</string>
     <string name="info">Info</string>
+    <string name="save">SAVE</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_delete">Delete</string>
 
 
 </resources>

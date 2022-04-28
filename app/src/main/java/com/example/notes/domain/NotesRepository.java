@@ -1,11 +1,17 @@
 package com.example.notes.domain;
 
+import android.provider.ContactsContract;
+
 import java.util.List;
 
 public interface NotesRepository {
 
-    List<Notes> getAll();
+   void getAll(Callback<List<Notes>> callback);
 
-    void add(Notes note);
+    void addNote(String title, String message, Callback<Notes> callback);
+
+    void removeNote(Notes note, Callback<Void> callback);
+
+    void updateNote(Notes note, String title, String message, Callback<Notes> callback);
 
 }
