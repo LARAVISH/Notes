@@ -76,7 +76,7 @@ public class NotesListFragment extends Fragment {
                     public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                         Notes note = result.getParcelable(AddNoteBottomSheetDialogFragment.ARG_NOTE);
 
-                        int index =adapter.addNote(note);
+                        int index = adapter.addNote(note);
 
                         adapter.notifyItemInserted(index);
 
@@ -108,7 +108,7 @@ public class NotesListFragment extends Fragment {
 
         progressBar.setVisibility(View.VISIBLE);
 
-        Dependencies.NOTES_REPOSITORY.getAll(new Callback<List<Notes>>() {
+        Dependencies.getNotesRepository().getAll(new Callback<List<Notes>>() {
             @Override
             public void onSuccess(List<Notes> data) {
                 adapter.setData(data);
@@ -127,6 +127,7 @@ public class NotesListFragment extends Fragment {
             }
         });
     }
+
     @Override
     public void onCreateContextMenu(@NonNull ContextMenu menu, @NonNull View v, @Nullable ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
@@ -142,7 +143,7 @@ public class NotesListFragment extends Fragment {
 
                 progressBar.setVisibility(View.VISIBLE);
 
-                Dependencies.NOTES_REPOSITORY.removeNote(selectedNote, new Callback<Void>() {
+                Dependencies.getNotesRepository().removeNote(selectedNote, new Callback<Void>() {
                     @Override
                     public void onSuccess(Void data) {
 

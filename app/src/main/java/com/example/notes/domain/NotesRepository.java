@@ -1,7 +1,5 @@
 package com.example.notes.domain;
 
-import android.provider.ContactsContract;
-
 import java.util.List;
 
 public interface NotesRepository {
